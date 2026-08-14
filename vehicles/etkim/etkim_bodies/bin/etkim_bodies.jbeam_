@@ -1,0 +1,668 @@
+{
+"etkim_body_none": {
+    "information":{
+        "authors":"03ff",
+        "name":"None",
+        "value":13000
+    },
+    "slotType" : "etkim_body",
+    "slots": [
+        ["type", "default", "description"],
+        ["etkim_suspension_F","etkim_subframe_F", "Front Subframe"],
+        ["etkim_suspension_R","etkim_suspension_R", "Rear Subframe"],
+    ],
+    "refNodes":[
+        ["ref:", "back:", "left:", "up:", "leftCorner:", "rightCorner:"],
+        ["f2", "f4", "f2l", "f7", "f15ll", "f15rr"],
+    ],
+    "cameraExternal":{
+        "distance":5,
+        "distanceMin":2,
+        "offset":{"x":0, "y":0.4, "z":0.4},
+        "fov":65,
+    },
+    "components":{
+        "fixed":false
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":true},
+         {"collision":true},
+         {"fixed":true}
+         ["f2", 0, -0.23, 0.23]
+         ["f2l",   0.22, -0.23, 0.23],
+         ["f4", 0, 1.11, 0.23]
+         ["f7r", -0.19, -0.23, 0.5],
+         ["f7", 0, -0.23, 0.5, {"nodeWeight":0.75}]
+         ["f15rr", -0.73, -1.79, 0.78],
+         ["f15ll", 0.73, -1.79, 0.78],
+
+         ["fs1r", -0.47, -1.325, 0.86, {"group":["etkim_strut_F","etkim_strutbar"]}],
+         ["fs1l", 0.47, -1.325, 0.86, {"group":["etkim_strut_F","etkim_strutbar"]}],
+         {"fixed":false}
+         {"group":""},
+    ],
+},
+"etkim_body_sedan": {
+    "information":{
+        "authors":"03ff",
+        "name":"Sedan Unibody",
+        "value":13000
+    },
+    "slotType" : "etkim_body",
+    "slots": [
+        ["type", "default", "description"],
+        ["etkim_roof","etkim_roof", "Roof"],
+        ["etkim_hood","etkim_hood", "Hood"],
+        ["etkim_fender_R","etkim_fender_R", "Front Right Fender"],
+        ["etkim_fender_L","etkim_fender_L", "Front Left Fender"],
+        ["etkim_door_FR","etkim_door_FR", "Front Right Door"],
+        ["etkim_door_FL","etkim_door_FL", "Front Left Door"],
+        ["etkim_suspension_F","etkim_subframe_F", "Front Subframe"],
+        ["etkim_suspension_R","etkim_suspension_R", "Rear Subframe"],
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["etkim_body_sedan", ["etkim_body"]],
+        //{"deformGroup":""},
+    ],
+    "refNodes":[
+        ["ref:", "back:", "left:", "up:", "leftCorner:", "rightCorner:"],
+        ["ct1", "ct3", "ct1l", "ct4", "ur5l", "ur5r"],
+        //["f2l", "f3l", "f2ll", "f7l", "f15ll", "f15rr"],
+        //["ref:"],
+        //["f2"]
+    ],
+    "cameraExternal":{
+        "distance":5,
+        "distanceMin":2,
+        "offset":{"x":0, "y":0.4, "z":0.4},
+        "fov":65,
+    },
+    "slidenodes": [
+        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+        ["ct1", "ct1", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+        ["ct3", "ct3", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+        ["ct4", "ct4", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+        //floor collision nodes
+        //["fi1l", "f1l", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+        //["fi1r", "f1r", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+        //["fi2l", "f2l", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+        //["fi2r", "f2r", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+        //["fi3l", "f3l", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+        //["fi3r", "f3r", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+    ],
+    "rails": {
+        "f2":{"links:":["ct1r", "ct1l"], "broken:":[], "looped":false, "capped":true},
+        "f4":{"links:":["ct3r", "ct3l"], "broken:":[], "looped":false, "capped":true},
+        "f7":{"links:":["ct4r", "ct4l"], "broken:":[], "looped":false, "capped":true},
+        //floor collision nodes
+        //"f1l":{"links:":["f1l", "f5l"], "broken:":[], "looped":false, "capped":true},
+        //"f1r":{"links:":["f1r", "f5r"], "broken:":[], "looped":false, "capped":true},
+
+        //"f2l":{"links:":["f2l", "f7l"], "broken:":[], "looped":false, "capped":true},
+        //"f2r":{"links:":["f2r", "f7r"], "broken:":[], "looped":false, "capped":true},
+
+        //"f3l":{"links:":["f3l", "f8l"], "broken:":[], "looped":false, "capped":true},
+        //"f3r":{"links:":["f3r", "f8r"], "broken:":[], "looped":false, "capped":true},
+    },
+    "components":{
+        "fixed":false
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":true},
+         {"collision":true},
+         //floor
+         {"nodeWeight":4.5},
+         //{"fixed":"$=$components.fixed"}
+         {"group":["etkim_body","etkim_floor"]},
+         ["ss1r", -0.83, -0.96, 0.21],
+         ["fr1r",  -0.42, -0.85, 0.21, {"group":"etkim_body"}],
+         ["fr1l",   0.42, -0.85, 0.21, {"group":"etkim_body"}],
+         ["ss1l",  0.83, -0.96, 0.21],
+
+         {"nodeWeight":3.1},
+         ["ss2r", -0.83, -0.23, 0.21],
+         //["f2rr", -0.52, -0.23, 0.21],
+         ["ct1r",  -0.22, -0.23, 0.23, {"fixed":"$=$components.fixed"}],
+         ["ct1", 0, -0.23, 0.23, {"nodeWeight":1.5,"collision":false,"selfCollision":false}]
+         ["ct1l",   0.22, -0.23, 0.23, {"fixed":"$=$components.fixed"}],
+         //["f2ll",  0.52, -0.23, 0.21],
+         ["ss2l",  0.83, -0.23, 0.21],
+
+         ["ss3r", -0.83,  0.31, 0.21],
+         //["f3rr", -0.50,  0.38, 0.21],
+         ["ct2r",  -0.2,  0.31, 0.23, {"fixed":"$=$components.fixed"}],
+         ["ct3", 0, 1.11, 0.23, {"nodeWeight":0.75,"collision":false,"selfCollision":false}]
+         ["ct2l",   0.20,  0.31, 0.23, {"fixed":"$=$components.fixed"}],
+         //["f3ll",  0.50,  0.38, 0.21],
+         ["ss3l",  0.83,  0.31, 0.21],
+
+         ["rr1r", -0.83,  1.11, 0.21],
+         //["f4rr", -0.50,  1.19, 0.21],
+         ["ct3r",  -0.20,  1.11, 0.23, {"fixed":"$=$components.fixed"}],
+         ["ct3l",   0.20,  1.11, 0.23, {"fixed":"$=$components.fixed"}],
+         //["f4ll",  0.50,  1.19, 0.21],
+         ["rr1l",  0.83,  1.11, 0.21],
+
+         //firewall
+         {"nodeWeight":4.1},
+         ["ss4r", -0.83, -0.65, 0.35, {"group":["etkim_body","gps"]}],
+         ["fr4r", -0.42, -0.92, 0.58, {"group":["etkim_body","gps"], "nodeweight":8.5}],
+         ["fr4l", 0.42, -0.92, 0.58, {"group":["etkim_body","gps"], "nodeweight":8.5}],
+         ["ss4l", 0.83, -0.65, 0.35, {"group":["etkim_body","gps"]}],
+
+         //weight added by glass
+         ["ucrr", -0.83, -0.75, 0.92, {"group":["etkim_engine_bay","gps","etkim_windshield","etkim_body","etkim_dash"]}],
+         ["ucr", -0.42, -0.85, 0.96, {"group":["etkim_engine_bay","gps","etkim_windshield","etkim_body","etkim_strutbar","etkim_dash"]}],
+         ["ucl", 0.42, -0.85, 0.96, {"group":["etkim_engine_bay","gps","etkim_windshield","etkim_body","etkim_strutbar","etkim_dash"]}],
+         ["ucll", 0.83, -0.75, 0.92, {"group":["etkim_engine_bay","gps","etkim_windshield","etkim_body","etkim_dash"]}],
+
+         //floor frame
+         {"nodeWeight":2.5},
+         ["ss5r", -0.83, -0.23, 0.35],
+         ["ct4r", -0.19, -0.23, 0.5, {"group":["etkim_body","etkim_dash"], "fixed":"$=$components.fixed"}],
+         ["ct4", 0, -0.23, 0.5, {"nodeWeight":0.75}]
+         ["ct4l", 0.19, -0.23, 0.5, {"group":["etkim_body","etkim_dash"], "fixed":"$=$components.fixed"}],
+         ["ss5l", 0.83, -0.23, 0.35],
+         ["ss6r", -0.83,  0.31, 0.35],
+         ["ct5r", -0.17, 0.31, 0.43, {"group":["etkim_body","etkim_dash"], "fixed":"$=$components.fixed"}],
+         ["ct5l", 0.17, 0.31, 0.43, {"group":["etkim_body","etkim_dash"], "fixed":"$=$components.fixed"}],
+         ["ss6l", 0.83,  0.31, 0.35],
+         //["q9rr", -0.87,  1.19, 0.35],
+         ["ct6r", -0.17, 1.13, 0.44, {"nodeWeight":4.5, "fixed":"$=$components.fixed"}],
+         ["ct6l", 0.17, 1.13, 0.44, {"nodeWeight":4.5, "fixed":"$=$components.fixed"}],
+         //["q9ll", 0.87,  1.19, 0.35],
+
+         //front frame
+         {"nodeWeight":4.1},
+         {"chemEnergy":200,"burnRate":0.3,"flashPoint":200,"specHeat":0.1,"smokePoint":150,"selfIgnitionCoef":false},
+         ["fr2r", -0.42, -1.39, 0.39, {"group":["etkim_body","etkim_lowerarm_F_a"]}],
+         ["fr2l", 0.42, -1.39, 0.39, {"group":["etkim_body","etkim_lowerarm_F_a"]}],
+         {"nodeWeight":3.3},
+         ["fr3r", -0.42, -1.91, 0.39, {"group":["etkim_body","etk_radiator","etkim_bumperbar"]}],
+         ["fr3l", 0.42, -1.91, 0.39, {"group":["etkim_body","etk_radiator","etkim_bumperbar"]}],
+         {"nodeWeight":4.1},
+         ["fr5r", -0.42, -1.39, 0.55, {"group":"etkim_body"}],
+         ["fr5l", 0.42, -1.39, 0.55, {"group":"etkim_body"}],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false,"specHeat":false,"smokePoint":false,"selfIgnitionCoef":false},
+         {"nodeWeight":3.3},
+         ["fr6r", -0.42, -1.91, 0.55, {"group":["etkim_body","etk_radiator","etkim_bumperbar"]}],
+         ["fr6l", 0.42, -1.91, 0.55, {"group":["etkim_body","etk_radiator","etkim_bumperbar"]}],
+
+         //hinge pillar
+         {"nodeWeight":3.5},
+         ["ap1rr", -0.83, -0.6, 0.87],
+         ["ap1ll", 0.83, -0.6, 0.87],
+
+         //front upper frame
+         ["ur1r", -0.83, -0.96, 0.63],
+         ["ur1l", 0.83, -0.96, 0.63],
+
+         {"nodeWeight":2.5},
+         ["ur2r", -0.82, -1.39, 0.78],
+         ["ur2l", 0.82, -1.39, 0.78],
+         ["ur5r", -0.82, -1.39, 0.87],
+         ["ur5l", 0.82, -1.39, 0.87],
+
+         //top of shock
+         {"nodeWeight":5.5},
+         //{"selfCollision":false},
+         ["ftr", -0.47, -1.325, 0.86, {"group":["etkim_strut_F","etkim_strutbar"]}],
+         ["ftl", 0.47, -1.325, 0.86, {"group":["etkim_strut_F","etkim_strutbar"]}],
+
+         //front upper frame support
+         //{"selfCollision":true},
+         {"nodeWeight":2.0},
+         ["ur3r", -0.73, -1.79, 0.78],
+         {"engineGroup":"radiator"},
+         {"engineGroup":""},
+         ["ur3l", 0.73, -1.79, 0.78],
+
+         {"group":"etkim_tubs"},
+         {"nodeWeight":1.5},
+         ["ur4r", -0.44, -1.87, 0.77],
+         ["ur4l", 0.44, -1.87, 0.77],
+
+         //rear frame
+         {"nodeWeight":6.5},
+         {"group":"etkim_body"},
+         ["rr6r", -0.67, 1.56, 0.54, {"group":["etkim_body","etkim_shock_R",]}],
+         ["rr2r", -0.67, 1.56, 0.44, {"group":["etkim_body","etkim_shock_R",]}],
+         ["r1", 0.0, 1.56, 0.54, {"group":["etkim_body",]}]
+         ["rr6l", 0.67, 1.56, 0.54, {"group":["etkim_body","etkim_shock_R",]}],
+         ["rr2l", 0.67, 1.56, 0.44, {"group":["etkim_body","etkim_shock_R",]}],
+
+         {"nodeWeight":4.3},
+         ["rr3r", -0.59, 1.83, 0.44, {"group":["etkim_body","etkim_spring_R"]}],
+         ["rr3l", 0.59, 1.83, 0.44, {"group":["etkim_body","etkim_spring_R"]}],
+
+         {"group":["etkim_body",]},
+         {"chemEnergy":200,"burnRate":0.5,"flashPoint":400,"specHeat":0.8,"smokePoint":150,"selfIgnitionCoef":false},
+         ["rr4r", -0.58, 2.17, 0.44,],
+         ["rr4l", 0.58, 2.17, 0.44],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false,"specHeat":false,"smokePoint":false,"selfIgnitionCoef":false},
+
+         {"nodeWeight":4.0},
+         {"group":"etkim_body"},
+         ["rp2r", -0.42, 2.46, 0.44],
+         ["rp2", 0.0, 2.46, 0.44],
+         ["rp2l", 0.42, 2.46, 0.44],
+         {"group":["etkim_body",]},
+         ["rr7r", -0.58, 1.83, 0.52],
+         ["r2", 0.0, 1.83, 0.52],
+         ["r5", 0.0, 1.83, 0.32],
+         ["rr7l", 0.58, 1.83, 0.52],
+         {"group":"etkim_body"},
+         ["rr8r", -0.58, 2.17, 0.52],
+         ["r3", 0.0, 2.17, 0.52],
+         ["r6", 0.0, 2.17, 0.32],
+         ["rr8l", 0.58, 2.17, 0.52],
+         ["rp1r", -0.42, 2.53, 0.66],
+         ["rp1", 0.0, 2.55, 0.66],
+         ["rp1l", 0.42, 2.53, 0.66],
+
+         ["rp1rr", -0.84, 2.0, 0.44],
+         ["rp1ll", 0.84, 2.0, 0.44],
+         
+         ["rp2rr", -0.77, 2.43, 0.44],
+         ["rp2ll", 0.77, 2.43, 0.44],
+
+         //--BODYWORK--
+         //quarter panel
+         {"nodeWeight":1.75},
+         {"group":"etkim_body"},
+         ["q1r", -0.83, 1.49, 0.98],
+         ["q1l", 0.83, 1.49, 0.98],
+         ["q2r", -0.82, 1.82, 0.98],
+         ["q2l", 0.82, 1.82, 0.98],
+         ["q3r", -0.76, 2.2, 0.98],
+         ["q3l", 0.76, 2.2, 0.98],
+         ["q4r", -0.66, 2.51, 1],
+         ["q4l", 0.66, 2.51, 1],
+         ["rr5r", -0.86, 1.13, 0.44, {"nodeWeight":4.5}],
+         ["rr5l", 0.85, 1.01, 0.37, {"nodeWeight":4.5}],
+         ["q5r", -0.93, 1.25, 0.66],
+         ["q5l", 0.93, 1.25, 0.66],
+         ["q6r", -0.93, 1.56, 0.76],
+         ["q6l", 0.93, 1.56, 0.76],
+         ["q7r", -0.93, 1.79, 0.68],
+         ["q7l", 0.93, 1.79, 0.68],
+         ["q8r", -0.85, 2.17, 0.72],
+         ["q8l", 0.85, 2.17, 0.72],
+         ["q9r", -0.76, 2.36, 0.75],
+         ["q9l", 0.76, 2.36, 0.75],
+
+         //trunk base
+         {"nodeWeight":1.7},
+         ["sc2r", -0.7, 2.06, 1.06],
+         ["sc2", 0.0, 2.157, 1.08],
+         ["sc2l", 0.7, 2.06, 1.06],
+
+         ["sc1", 0.0, 1.49, 0.98],
+
+         //roof
+         //weight added by glass
+         {"nodeWeight":2.5},
+         ["rf1rr", -0.6, -0.01, 1.37, {"group":["etkim_body","etkim_windshield"]}],
+         //["rf1", 0, -0.05, 1.4, {"nodeWeight":1.5,"group":["etkim_body","etkim_windshield","etkim_roof"]}],
+         ["rf1", 0, -0.05, 1.41, {"nodeWeight":3.5}],
+         ["rf1ll", 0.6, -0.01, 1.37, {"group":["etkim_body","etkim_windshield"]}],
+
+         //redefined by sunroof
+         ["rf2rr", -0.54, 0.53, 1.44, {"group":["etkim_body"]}],
+         //["rf2", 0, 0.54, 1.46, {"nodeWeight":1.5,"group":["etkim_body","etkim_roof"]}],
+         ["rf2", 0, 0.54, 1.47, {"nodeWeight":3.5}],
+         ["rf2ll", 0.54, 0.53, 1.44, {"group":["etkim_body"]}],
+
+         ["rf3rr", -0.55, 0.99, 1.42, {"group":["etkim_body"]}],
+         //["rf3", 0, 1, 1.445, {"nodeWeight":1.5,"group":["etkim_body","etkim_roof"]}],
+         ["rf3", 0, 1, 1.455, {"nodeWeight":1.0}],
+         ["rf3ll", 0.55, 0.99, 1.42, {"group":["etkim_body"]}],
+
+         ["rf4rr", -0.58, 1.31, 1.36, {"group":["etkim_body"]}],//weight added by glass
+         //["rf4", 0, 1.49, 1.341, {"nodeWeight":1.5,"group":["etkim_body","etkim_roof"]}],
+         ["rf4", 0, 1.35, 1.391, {"nodeWeight":2.5}],
+         ["rf4ll", 0.58, 1.31, 1.36, {"group":["etkim_body"]}],//weight added by glass
+
+         {"nodeWeight":2.2},
+         {"group":""},
+         ["rf5", 0, 0.68, 1.01, {"collision":false,"selfCollision":false}],
+
+
+         //pillars
+         //a pillar
+         {"nodeWeight":1.3},
+         {"group":"etkim_body"},
+         ["ap1r", -0.65, -0.42, 1.2, {"group":["etkim_body","etkim_windshield"]}],//weight added by glass
+         ["ap1l", 0.65, -0.42, 1.2, {"group":["etkim_body","etkim_windshield"]}],//weight added by glass
+         ["ap2r", -0.71, -0.26, 1.2],
+         ["ap2l", 0.71, -0.26, 1.2],
+         ["ap2rr", -0.64, -0.26, 1.1, {"group":""}],
+         ["ap2ll", 0.64, -0.26, 1.1, {"group":""}],
+
+         //b pillar
+         {"nodeWeight":1.3},
+         ["bp1r", -0.83, 0.27, 0.64],
+         ["bp1l", 0.83, 0.27, 0.64],
+         ["bp2r", -0.83, 0.44, 0.64],
+         ["bp2l", 0.83, 0.44, 0.64],
+
+         {"nodeWeight":2.0},
+         ["bp3r", -0.81, 0.35, 0.94],
+         ["bp3l", 0.81, 0.35, 0.94],
+         ["bp4r", -0.81, 0.48, 0.94],
+         ["bp4l", 0.81, 0.48, 0.94],
+         ["bp5r", -0.71, 0.41, 1.1],
+         ["bp5l", 0.71, 0.41, 1.1],
+         ["bp6r", -0.71, 0.51, 1.1],
+         ["bp6l", 0.71, 0.51, 1.1],
+
+         //c pillar
+         {"nodeWeight":1.3},
+         //weight added by glass
+         ["cp1r", -0.73, 1.54, 1.15],
+         ["cp1l", 0.73, 1.54, 1.15],
+         ["cp2r", -0.65, 1.73, 1.20],
+         ["cp2l", 0.65, 1.73, 1.20],
+         
+         //hinges
+         {"nodeWeight":1.1},
+         {"group":""},
+         ["dh1r", -0.86, -0.71, 0.84, {"collision":false,"selfCollision":false}],
+         ["dh1l", 0.86, -0.71, 0.84, {"collision":false,"selfCollision":false}],
+         
+         {"fixed":false}
+         {"group":""},
+
+        //ADDED NODES BY EDITOR//
+        ["rtl", 0.58, 1.595, 0.96],
+        ["rtr", -0.412, 1.595, 0.96],
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //hinges
+          {"beamSpring":2301000,"beamDamp":250},
+          {"beamDeform":28000,"beamStrength":261000},
+          {"breakGroup":"doorhinge_c_FR"},
+          ["dh1r","fr4r"],
+          ["dh1r","ucr"],
+          ["dh1r","ap1rr"],
+          ["dh1r","ucrr"],
+          ["dh1r","ss4r"],
+          ["dh1r","ur1r"],
+
+          {"breakGroup":"doorhinge_c_FL"},
+          ["dh1l","fr4l"],
+          ["dh1l","ucl"],
+          ["dh1l","ap1ll"],
+          ["dh1l","ucll"],
+          ["dh1l","ss4l"],
+          ["dh1l","ur1l"],
+          {"breakGroup":""},
+
+          //--BLEED DEFORM LIMIT TO OTHER PARTS--
+          {"deformLimitExpansion":1.1},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"groundModel":"metal"},
+    ],
+},
+"etkim_roof": {
+    "information":{
+        "authors":"03ff",
+        "name":"Roof",
+        "value":330
+    },
+    "slotType" : "etkim_roof",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["etkim_roof", ["etkim_roof"]],
+        //{"deformGroup":""},
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":true},
+         {"collision":true},
+         {"nodeWeight":1.1},
+         {"group":"etkim_roof"}
+         
+
+         //redefined by sunroof
+         
+
+         
+
+         
+
+         //roof rigidifier
+         
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //roof main shape lengthwise
+          {"beamSpring":1201000,"beamDamp":150},
+          {"beamDeform":33000,"beamStrength":"FLT_MAX"},
+          {"deformGroup":"sunroof_break","deformationTriggerRatio":0.03},
+          {"deformLimitExpansion":1.2},
+          ["rf1r","rf2r"],
+          ["rf1","rf2"],
+          ["rf1l","rf2l"],
+          {"deformGroup":""},
+          ["rf2r","rf3r"],
+          ["rf2","rf3"],
+          ["rf2l","rf3l"],
+          ["rf3r","rf4r"],
+          ["rf3","rf4"],
+          ["rf3l","rf4l"],
+
+          //roof main shape widthwise
+          {"deformGroup":"windshield_break","deformationTriggerRatio":0.01},
+          ["rf1r","rf1"],
+          ["rf1","rf1l"],
+          {"deformGroup":"sunroof_break","deformationTriggerRatio":0.01},
+          ["rf2r","rf2"],
+          ["rf2","rf2l"],
+          {"deformGroup":""},
+
+          ["rf3r","rf3"],
+          ["rf3","rf3l"],
+          {"deformGroup":"backlight_break","deformationTriggerRatio":0.015},
+          ["rf4r","rf4"],
+          ["rf4","rf4l"],
+          {"deformGroup":""},
+
+          //surficial crossing
+          {"deformLimitExpansion":""},
+          {"beamDeform":15700,"beamStrength":"FLT_MAX"},
+          {"deformGroup":"sunroof_break","deformationTriggerRatio":0.03},
+          ["rf1r","rf2"],
+          ["rf1l","rf2"],
+          ["rf2r","rf1"],
+          ["rf2l","rf1"],
+          {"deformGroup":""},
+
+          ["rf2r","rf3"],
+          ["rf2l","rf3"],
+          ["rf3r","rf2"],
+          ["rf3l","rf2"],
+          ["rf3r","rf4"],
+          ["rf3l","rf4"],
+          ["rf4r","rf3"],
+          ["rf4l","rf3"],
+
+          //rigids
+          {"beamSpring":1101000,"beamDamp":200},
+          {"beamDeform":13000,"beamStrength":"FLT_MAX"},
+          ["rf1r","rf1l"],
+          {"beamDeform":10000,"beamStrength":"FLT_MAX"},
+          ["rf2r","rf2l"],
+          ["rf4r", "rf4l"],
+          //length
+          {"beamDeform":6500,"beamStrength":"FLT_MAX"},
+          ["rf1r","rf3r"],
+          ["rf1","rf3"],
+          ["rf1l","rf3l"],
+          
+          ["rf2r","rf4r"],
+          ["rf2","rf4"],
+          ["rf2l","rf4l"],
+
+          //roof rigidifier
+          {"beamSpring":1301000,"beamDamp":220},
+          {"beamDeform":17100,"beamStrength":"FLT_MAX"},
+          {"deformGroup":"sunroof_break","deformationTriggerRatio":0.05},
+          ["rf1r","rf7"],
+          ["rf1","rf7"],
+          ["rf1l","rf7"],
+          
+          ["rf4r","rf7"],
+          ["rf4","rf7"],
+          ["rf4l","rf7"],
+          
+          {"beamDeform":7000,"beamStrength":"FLT_MAX"},
+          ["rf2r","rf7"],
+          ["rf2","rf7"],
+          ["rf2l","rf7"],
+
+          ["rf3r","rf7"],
+          ["rf3","rf7"],
+          ["rf3l","rf7"],
+          
+
+          //attach
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":801000,"beamDamp":200},
+          {"beamDeform":15100,"beamStrength":76100},
+          //{"dampCutoffHz":500}
+          {"deformLimitExpansion":""},
+          {"disableMeshBreaking":true},
+          {"optional":true},
+          ["rf1r", "rf1rr"]
+          ["rf1l", "rf1ll"]
+          ["rf2r", "rf2rr"]
+          ["rf2l", "rf2ll"]
+          ["rf3r", "rf3rr"]
+          ["rf3l", "rf3ll"]
+          ["rf4r", "rf4rr"]
+          ["rf4l", "rf4ll"]
+          {"optional":false},
+          {"dampCutoffHz":""}
+
+          {"beamSpring":501000,"beamDamp":200},
+          {"beamDeform":4900,"beamStrength":21500},
+          ["rf1", "p2rr"],
+          ["rf1", "p2ll"],
+
+          ["rf2", "p8r"],
+          ["rf2", "p8l"],
+
+          ["rf4", "p9r"],
+          ["rf4", "p9l"],
+
+          ["rf1r", "p2r"],
+          ["rf1r", "p1r"],
+          ["rf1l", "p2l"],
+          ["rf1l", "p1l"],
+
+          ["p2rr", "rf1r"],
+          ["p2ll", "rf1l"],
+
+          ["p2rr", "rf2r"],
+          ["p2ll", "rf2l"],
+
+          ["p2r", "rf2r"],
+          ["p2l", "rf2l"],
+
+          ["f6rr", "rf2r"],
+          ["f6ll", "rf2l"],
+
+          ["p7r","rf2r"],
+          ["p7l","rf2l"],
+          ["p8r","rf2r"],
+          ["p8l","rf2l"],
+
+          ["p5r", "rf2r"],
+          ["p6r", "rf2r"],
+          ["p5l", "rf2l"],
+          ["p6l", "rf2l"],
+
+          ["p7r", "rf1r"],
+          ["p8r", "rf3r"],
+          ["p7l", "rf1l"],
+          ["p8l", "rf3l"],
+
+          ["p5r", "rf1r"],
+          ["p5l", "rf1l"],
+          ["p6r", "rf3r"],
+          ["p6l", "rf3l"],
+
+          ["p9r", "rf3r"],
+          ["p10r", "rf4r", {"deformGroup":"backlight_break", "deformationTriggerRatio":0.01}],
+
+          ["p9l", "rf3l"],
+          ["p10l", "rf4l", {"deformGroup":"backlight_break", "deformationTriggerRatio":0.01}],
+
+          ["p9r", "rf4r"],
+          ["p10r", "rf3r"],
+          ["p9l", "rf4l"],
+          ["p10l", "rf3l"],
+
+          ["rf3r", "q1r"],
+          ["rf4r", "q3r"],
+          ["rf4r", "q2r"],
+          ["rf3r", "q2r"],
+          ["rf4r", "q1r", {"deformGroup":"backlight_break", "deformationTriggerRatio":0.01}],
+
+          ["rf3l", "q1l"],
+          ["rf4l", "q3l"],
+          ["rf4l", "q2l"],
+          ["rf3l", "q2l"],
+          ["rf4l", "q1l", {"deformGroup":"backlight_break", "deformationTriggerRatio":0.01}],
+
+          ["p9r", "rf2r"],
+          ["p9l", "rf2l"],
+
+          //--BLEED DEFORM LIMIT TO OTHER PARTS--
+          {"disableMeshBreaking":false},
+          {"deformLimitExpansion":1.1},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"groundModel":"metal"},
+            //roof
+            {"dragCoef":3.5},
+            {"group":"etk800_roof"},
+
+            {"dragCoef":10.5},
+            ["rf1r","rf1","rf2r"],
+            ["rf1","rf2","rf2r"],
+            ["rf1","rf1l","rf2l"],
+            ["rf2","rf1","rf2l"],
+
+            ["rf2r","rf2","rf3r"],
+            ["rf2","rf3","rf3r"],
+            ["rf2","rf2l","rf3l"],
+            ["rf3","rf2","rf3l"],
+
+            ["rf3r","rf3","rf4r"],
+            ["rf3","rf4","rf4r"],
+            ["rf3","rf3l","rf4l"],
+            ["rf4","rf3","rf4l"],
+            {"dragCoef":1.75},
+            {"group":""},
+    ],
+}
+}

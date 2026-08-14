@@ -1,0 +1,998 @@
+{
+"etkim_body_sedan": {
+    "information":{//0
+        "authors":"03ff",
+        "name":"Sedan Unibody",
+        "value":13000
+    },
+    "slotType" : "etkim_body",
+    "slots": [
+        ["type", "default", "description"],
+        ["etkim_roof","etkim_roof", "Roof"],
+        ["etkim_hood","etkim_hood", "Hood"],
+        ["etkim_fender_R","etkim_fender_R", "Front Right Fender"],
+        ["etkim_fender_L","etkim_fender_L", "Front Left Fender"],
+        ["etkim_door_FR","etkim_door_FR", "Front Right Door"],
+        ["etkim_door_FL","etkim_door_FL", "Front Left Door"],
+        ["etkim_suspension_F","etkim_subframe_F", "Front Subframe"],
+        ["etkim_suspension_R","etkim_suspension_R", "Rear Subframe"],
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["etkim_body_sedan", ["etkim_body"]],
+    ],
+    "refNodes":[
+        ["ref:", "back:", "left:", "up:", "leftCorner:", "rightCorner:"],
+        ["ct1", "ct3", "ct1l", "ct4", "ur5l", "ur5r"],
+    ],
+    "cameraExternal":{
+        "distance":5,
+        "distanceMin":2,
+        "offset":{"x":0, "y":0.4, "z":0.4},
+        "fov":65,
+    },
+    "slidenodes": [
+        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+        ["ct1", "ct1", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+        ["ct3", "ct3", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+        ["ct4", "ct4", true, true, 0.0, 800100, "FLT_MAX", "FLT_MAX"],
+    ],
+    "rails": {
+        "f2":{"links:":["ct1r", "ct1l"], "broken:":[], "looped":false, "capped":true},
+        "f4":{"links:":["ct3r", "ct3l"], "broken:":[], "looped":false, "capped":true},
+        "f7":{"links:":["ct4r", "ct4l"], "broken:":[], "looped":false, "capped":true},
+    },
+    "components":{
+        "fixed":false
+    },
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"nodeMaterial":"|NM_METAL"},
+        {"selfCollision":true},
+        {"collision":true},
+        {"nodeWeight":4.5},
+        {"group":"etkim_body"},
+
+        //front rail
+        ["fr1r",  -0.42, -0.85, 0.21],
+        ["fr1l",   0.42, -0.85, 0.21],
+
+        ["fr2r", -0.42, -1.39, 0.39],
+        ["fr2l",  0.42, -1.39, 0.39],
+
+        ["fr3r", -0.42, -1.91, 0.39],
+        ["fr3l",  0.42, -1.91, 0.39],
+
+        ["fr4r", -0.42, -0.91, 0.58],
+        ["fr4l",  0.42, -0.91, 0.58],
+
+        ["fr5r", -0.42, -1.39, 0.55],
+        ["fr5l",  0.42, -1.39, 0.55],
+
+        ["fr6r", -0.42, -1.91, 0.55],
+        ["fr6l",  0.42, -1.91, 0.55],
+
+        //upper rail
+        ["ur1r", -0.83, -0.96, 0.63],
+        ["ur1l",  0.83, -0.96, 0.63],
+
+        ["ur2r", -0.82, -1.39, 0.78],
+        ["ur2l",  0.82, -1.39, 0.78],
+
+        ["ur3r", -0.73, -1.77, 0.78],
+        ["ur3l",  0.73, -1.77, 0.78],
+
+        ["ur4r", -0.44, -1.84, 0.77],
+        ["ur4l",  0.44, -1.84, 0.77],
+
+        ["ur5r", -0.83, -0.77, 0.92],
+        ["ur5l",  0.83, -0.77, 0.92],
+
+        ["ur6r", -0.82, -1.39, 0.87],
+        ["ur6l",  0.82, -1.39, 0.87],
+
+        //rear rail
+        ["rr1r", -0.83,  1.05, 0.21],
+        ["rr1l",  0.83,  1.05, 0.21],
+
+        ["rr2r", -0.54, 1.47, 0.48],
+        ["rr2l",  0.54, 1.47, 0.48],
+
+        ["rr3r", -0.51, 1.93, 0.45],
+        ["rr3l",  0.51, 1.93, 0.45],
+
+        ["rr4r", -0.51, 2.2, 0.45],
+        ["rr4l",  0.51, 2.2, 0.45],
+
+        ["rr5r", -0.86, 1.06, 0.44],
+        ["rr5l",  0.86, 1.06, 0.44],
+
+        ["rr6r", -0.54, 1.47, 0.68],
+        ["rr6l",  0.54, 1.47, 0.68],
+
+        ["rr7r", -0.51, 1.93, 0.61],
+        ["rr7l",  0.51, 1.93, 0.61],
+
+        ["rr8r", -0.51, 2.2, 0.57],
+        ["rr8l",  0.51, 2.2, 0.57],
+
+        //center tunnel
+        ["ct1", 0, -0.23, 0.23]
+        ["ct1r",  -0.25, -0.23, 0.23],
+        ["ct1l",   0.25, -0.23, 0.23],
+
+        ["ct2r",  -0.25,  0.32, 0.23],
+        ["ct2l",   0.25,  0.32, 0.23],
+
+        ["ct3", 0, 0.67, 0.23]
+        ["ct3r",  -0.25,  0.69, 0.23],
+        ["ct3l",   0.25,  0.69, 0.23],
+
+        ["ct3rr",  -0.54,  0.69, 0.23],
+        ["ct3ll",   0.54,  0.69, 0.23],
+
+        ["ct4", 0, -0.23, 0.5]
+        ["ct4r", -0.17, -0.23, 0.5],
+        ["ct4l",  0.17, -0.23, 0.5],
+
+        ["ct5r", -0.15, 0.32, 0.43],
+        ["ct5l",  0.15, 0.32, 0.43],
+
+        ["ct6r", -0.15, 0.71, 0.5],
+        ["ct6l",  0.15, 0.71, 0.5],
+
+        ["ct6rr", -0.54, 0.71, 0.5],
+        ["ct6ll",  0.54, 0.71, 0.5],
+
+        //side sill
+        ["ss1r", -0.83, -0.96, 0.21],
+        ["ss1l",  0.83, -0.96, 0.21],
+
+        ["ss2r", -0.83, -0.23, 0.21],
+        ["ss2l",  0.83, -0.23, 0.21],
+
+        ["ss3r", -0.83,  0.32, 0.21],
+        ["ss3l",  0.83,  0.32, 0.21],
+
+        ["ss4r", -0.83, -0.65, 0.35],
+        ["ss4l",  0.83, -0.65, 0.35],
+
+        ["ss5r", -0.83, -0.23, 0.35],
+        ["ss5l",  0.83, -0.23, 0.35],
+
+        ["ss6r", -0.83,  0.32, 0.35],
+        ["ss6l",  0.83,  0.32, 0.35],
+
+        //a pillar
+        ["ap1r", -0.68, -0.4, 1.19]
+        ["ap1l",  0.68, -0.4, 1.19]
+
+        ["ap1rr", -0.83, -0.6, 0.87],
+        ["ap1ll",  0.83, -0.6, 0.87],
+
+        ["ap2r", -0.76, -0.35, 1.15],
+        ["ap2l",  0.76, -0.35, 1.15],
+
+        ["ap2rr", -0.67, -0.28, 1.11],
+        ["ap2ll",  0.67, -0.28, 1.11],
+
+        //b pillar
+        ["bp1r", -0.83, 0.27, 0.64],
+        ["bp1l",  0.83, 0.27, 0.64],
+
+        ["bp2r", -0.81, 0.35, 0.95],
+        ["bp2l",  0.81, 0.35, 0.95],
+
+        ["bp3r", -0.71, 0.43, 1.22],
+        ["bp3l",  0.71, 0.43, 1.22],
+        
+        ["bp4r", -0.83, 0.44, 0.64],
+        ["bp4l",  0.83, 0.44, 0.64],
+
+        ["bp5r", -0.81, 0.48, 0.95],
+        ["bp5l",  0.81, 0.48, 0.95],
+
+        ["bp6r", -0.71, 0.52, 1.22],
+        ["bp6l",  0.71, 0.52, 1.22],
+
+        //c pillar
+        ["cp1r", -0.73, 1.52, 1.17],
+        ["cp1l",  0.73, 1.52, 1.17],
+
+        ["cp2r", -0.66, 1.73, 1.20],
+        ["cp2l",  0.66, 1.73, 1.20],
+
+        //quarter panel
+        ["q1r", -0.82, 1.49, 0.99],
+        ["q1l",  0.82, 1.49, 0.99],
+
+        ["q2r", -0.78, 1.82, 1.01],
+        ["q2l",  0.78, 1.82, 1.01],
+
+        ["q3r", -0.73, 2.16, 1.03],
+        ["q3l",  0.73, 2.16, 1.03],
+
+        ["q4r", -0.66, 2.51, 1],
+        ["q4l",  0.66, 2.51, 1],
+        
+        ["q5r", -0.93, 1.25, 0.66],
+        ["q5l",  0.93, 1.25, 0.66],
+
+        ["q6r", -0.93, 1.56, 0.75],
+        ["q6l",  0.93, 1.56, 0.75],
+
+        ["q7r", -0.93, 1.79, 0.67],
+        ["q7l",  0.93, 1.79, 0.67],
+
+        ["q8r", -0.85, 2.14, 0.71],
+        ["q8l",  0.85, 2.14, 0.71],
+
+        ["q9r", -0.73, 2.46, 0.75],
+        ["q9l",  0.73, 2.46, 0.75],
+
+        //upper cowl
+        ["ucr", -0.32, -0.91, 0.93],
+        ["ucl",  0.32, -0.91, 0.93],
+
+        //front tower top
+        ["ftr", -0.52, -1.35, 0.86],
+        ["ftl",  0.52, -1.35, 0.86],
+
+        //rear tower top
+        ["rtr", -0.56, 1.62, 1.04],
+        ["rtl",  0.56, 1.62, 1.04],
+
+        //rear panel
+        ["rp1", 0.0, 2.55, 0.66],
+
+        ["rp1r", -0.42, 2.53, 0.66],
+        ["rp1l",  0.42, 2.53, 0.66],
+
+        ["rp1rr", -0.84, 2.0, 0.45],
+        ["rp1ll",  0.84, 2.0, 0.45],
+
+        ["rp2", 0.0, 2.5, 0.48],
+
+        ["rp2r", -0.42, 2.5, 0.45],
+        ["rp2l",  0.42, 2.5, 0.45],
+
+        ["rp2rr", -0.73, 2.46, 0.45],
+        ["rp2ll",  0.73, 2.46, 0.45],
+
+        //trunk floor
+        ["tf1", 0.0, 1.29, 0.5]
+        ["tf3", 0.0, 2.2, 0.48],
+        ["tf2", 0.0, 1.93, 0.5],
+        ["tf5", 0.0, 1.93, 0.3],
+        ["tf6", 0.0, 2.2, 0.3],
+
+        //shelf crossmember
+        ["sc1", 0.0, 1.54, 1.04],
+
+        ["sc2", 0.0, 2.157, 1.09],
+        ["sc2r", -0.61, 2.01, 1.07],
+        ["sc2l",  0.61, 2.01, 1.07],
+
+        //roof
+        ["rf1", 0, -0.12, 1.37],
+        ["rf1r", -0.61, -0.05, 1.36],
+        ["rf1l",  0.61, -0.05, 1.36],
+
+        ["rf2", 0, 0.52, 1.46],
+        ["rf2r", -0.55, 0.52, 1.44],
+        ["rf2l",  0.55, 0.52, 1.44],
+
+        ["rf3", 0, 0.99, 1.45],
+        ["rf3r", -0.56, 0.98, 1.42],
+        ["rf3l",  0.56, 0.98, 1.42],
+
+        ["rf4", 0, 1.35, 1.39],
+        ["rf4r", -0.61, 1.3, 1.35]
+        ["rf4l",  0.61, 1.3, 1.35]
+
+        ["rf5", 0, 0.58, 1.11],
+
+        //door hinges
+        {"nodeWeight":1.1},
+        {"group":""},
+        ["dh1r", -0.86, -0.71, 0.84],
+        ["dh1l",  0.86, -0.71, 0.84],
+        
+        //arguments anti bleed nodes
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        //hinges
+        {"beamSpring":2301000,"beamDamp":250},
+        {"beamDeform":28000,"beamStrength":261000},
+        {"breakGroup":"doorhinge_c_FR"},
+        ["dh1r","ap1rr"],
+        ["dh1r","fr4r"],
+        ["dh1r","ucr"],
+        ["dh1r","ucrr"],
+        ["dh1r","ur1r"],
+        ["dh1r","ss4r"],
+
+        {"breakGroup":"doorhinge_c_FL"},
+        ["dh1l","ap1ll"],
+        ["dh1l","fl4l"],
+        ["dh1l","ucl"],
+        ["dh1l","ucll"],
+        ["dh1l","ul1l"],
+        ["dh1l","ss4l"],
+        {"breakGroup":""},
+
+        {"beamSpring":5001000,"beamDamp":150},
+        {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+        //front rail
+        //lengthwise
+        ["fr1l","fr2l"],
+        ["fr2l","fr3l"],
+        ["fr4l","fr5l"],
+        ["fr5l","fr6l"],
+        
+        //vertical
+        ["fr1l","fr4l"],
+        ["fr2l","fr5l"],
+        ["fr3l","fr6l"],
+
+        //crossing
+        ["fr1l", "fr5l"],
+        ["fr2l", "fr6l"],
+        ["fr2l", "fr4l"],
+        ["fr3l", "fr5l"],
+        
+        //corners
+        ["fr2l", "ss1l"],
+        ["fr5l", "ur1l"],
+        ["fr1r", "fr2l"],
+        ["fr4r", "fr5l"],
+        ["fr2l", "ur1l"],
+        ["fr2l", "fr4r"],
+        ["fr5l", "ss1l"],
+        ["fr1r", "fr5l"],
+        ["fr5l", "ucl"],
+        
+        //front rail end
+
+        //upper rail
+        //lengthwise
+        ["ur1l","ur2l"],
+        ["ur2l","ur3l"],
+        ["ur3l","ur4l"],
+        ["ur5l","ur6l"],
+        ["ur3l","ur6l"],
+        
+        //vertical
+        ["ur1l","ur5l"],
+        ["ur2l","ur6l"],
+        ["ss1l", "ur1l"],
+
+
+        //crossing
+        ["ur1l", "ur6l"],
+        ["ur2l", "ur5l"],
+
+        ["ss4l", "ur5l"],
+        ["ap1ll", "ur1l"],
+        ["ss4l", "ur1l"],
+        ["ss1l", "ur5l"],
+
+        //corners
+        ["ur4l", "ur6l"],
+        ["ur2l", "ur4l"],
+        ["fr5l", "ur4l"],
+        ["ftl", "ur3l"],
+
+        //upper rail end
+
+        //rear rail
+        //lengthwise
+        ["rr1l", "rr2l"],
+        ["rr2l","rr3l"],
+        ["rr3l","rr4l"],
+        ["rp2l", "rr4l"],
+
+        ["rr5l","rr6l"],
+        ["rr6l","rr7l"],
+        ["rr7l","rr8l"],
+        ["rp1l", "rr8l"],
+
+        
+        //vertical
+        ["rr1l","rr5l"],
+        ["rr2l","rr6l"],
+        ["rr3l","rr7l"],
+        ["rr4l","rr8l"],
+        
+        ["fr6l", "ur4l"],
+        ["fr6l", "ur3l"],
+        
+        //corners
+        ["rr2l", "ss3l"],
+        ["rr6l", "ss6l"],
+        
+        ["rr2l", "ss6l"],
+        ["rr6l", "ss3l"],
+
+
+        ["ct6l", "rr6l"],
+        ["ct3l", "rr2l"],
+
+        
+        ["ct3l", "rr6l"],
+
+        
+
+        
+
+        //crossing
+        ["rr1l", "rr6l"],
+        ["rr2l", "rr7l"],
+        ["rr3l", "rr8l"],
+
+        ["rp1l", "rr4l"],
+
+
+        ["rr2l", "rr5l"],
+
+        ["rr3l", "rr6l"],
+        ["rr4l", "rr7l"],
+
+        ["rp2l", "rr8l"],
+
+        //rear rail end
+        
+        //fire wall
+        //lengthwise
+        ["ap1ll", "ur5l"],
+
+        //widthwise
+        ["fr1l", "ss1l"],
+        ["fr1l", "fr1r"],
+        ["fr4l", "ur1l"],
+        ["fr4l", "fr4r"],
+        ["ucl", "ur5l"],
+        ["ucl", "ucr"],
+
+        //vertical
+        ["fr4l", "ucl"],
+        ["ap1ll", "ss4l"],
+
+
+        //crossing
+        ["fr4l", "ss1l"],
+        ["ucl", "ur1l"],
+        ["fr1l", "fr4r"],
+        ["fr4l", "ucr"],
+        ["fr1l", "ur1l"],
+        ["fr4l", "ur5l"],
+        ["fr1r", "fr4l"],
+        ["fr4r", "ucl"],
+
+
+
+        
+        //corners
+        ["fr1l", "ss4l"],
+        ["fr4l", "ss4l"],
+        ["ap1ll", "fr4l"],
+        ["ap1ll", "ucl"],
+
+
+        
+        //fire wall end
+
+        //center tunnel
+        //lengthwise
+        
+        ["ct1l", "fr1l"],
+        ["ct4l", "fr4l"],
+        
+        ["ct1l","ct2l"],
+        ["ct2l","ct3l"],
+        ["ct4l","ct5l"],
+        ["ct5l","ct6l"],
+
+        //vertical
+        ["ct1l","ct4l"],
+        ["ct2l","ct5l"],
+        ["ct3l","ct6l"],
+        
+        //widthwise
+        ["ct4l","ct4r"],
+        ["ct5l","ct5r"],
+        ["ct6l","ct6r"],
+
+        //crossing
+        ["ct4l", "fr1l"],
+        ["ct1l", "ct5l"],
+        ["ct2l", "ct6l"],
+        ["ct1l", "fr4l"],
+        ["ct2l", "ct4l"],
+        ["ct3l", "ct5l"],
+        ["ct4r", "fr4l"],
+        ["ct4l", "ct5r"],
+        ["ct5l", "ct6r"],
+        
+        //corners
+        ["ct4l", "ss2l"],
+        ["ct5l", "ss3l"],
+
+        //refnode rigids
+        ["ct1", "ct1l"],
+        ["ct3", "ct3l"],
+        ["ct4", "ct4l"],
+
+        
+        //center tunnel end
+
+        //side sill
+        //lengthwise
+        ["ss1l","ss2l"],
+        ["ss2l","ss3l"],
+        ["rr1l", "ss3l"],
+
+        ["ss4l","ss5l"],
+        ["ss5l","ss6l"],
+        ["rr5l", "ss6l"],
+
+        
+        //vertical
+        ["ss1l","ss4l"],
+        ["ss2l","ss5l"],
+        ["ss3l","ss6l"],
+
+        //crossing
+        ["ss1l", "ss5l"],
+        ["ss2l", "ss6l"],
+        ["rr5l", "ss3l"],
+        ["ss2l", "ss4l"],
+        ["ss3l", "ss5l"],
+        ["rr1l", "ss6l"],
+        
+        //corners
+        ["ct1l", "ss5l"],
+        ["ct2l", "ss6l"],
+        
+        //side sill end
+        
+        //floor
+        //widthwise
+        ["ct1l", "ss2l"],
+        ["ct2l", "ss3l"],
+        ["ct3l", "ct3ll"],
+        ["ct6l", "ct6ll"],
+        ["ct3ll", "rr1l"],
+        ["ct6ll", "rr5l"],
+        
+        //vertical
+        ["ct3ll", "ct6ll"],
+
+
+        //crossing
+        ["ct1l", "ss1l"],
+        ["ct2l", "ss2l"],
+        ["ct3l", "ss3l"],
+        ["ct3ll", "ss3l"],
+        ["ct3ll", "ct6l"],
+        ["ct6ll", "rr1l"],
+
+        ["ct1l", "ss3l"],
+        ["ct2l", "ct3ll"],
+        ["ct3l", "ct6ll"],
+        ["ct3ll", "rr5l"],
+
+
+        //floor end
+        
+        //a pillar
+        //lengthwise
+        ["ap1l","ap1ll"],
+        ["ap1l", "ur5l"],
+        ["ap1l", "rf1l"],
+
+        ["ap1ll","ap2l"],
+        ["ap2l", "ur5l"],
+        ["ap2l", "rf1l"],
+
+        ["ap1ll","ap2ll"],
+        ["ap2ll", "ur5l"],
+        ["ap2ll", "rf1l"],
+        
+        //widthwise
+        ["ap1l","ap2l"],
+        ["ap2l","ap2ll"],
+        ["ap1l","ap2ll"],
+        
+        //corners
+        ["ap2l", "ucl"],
+        ["ap1l", "ss4l"],
+        ["ap1l", "rf2l"],
+        ["ap2l", "rf1"],
+        
+        //rigids
+        ["ap1ll", "rf1l"],
+        ["rf1l", "ur5l"],
+
+        //a pillar end
+
+
+        
+        //b pillar
+        //vertical
+        ["bp1l", "ss6l"],
+        ["bp1l","bp2l"],
+        ["bp2l","bp3l"],
+        ["bp3l", "rf2l"],
+        ["bp4l", "ss6l"],
+
+        ["bp4l","bp5l"],
+        ["bp5l","bp6l"],
+        ["bp6l", "rf2l"],
+
+        
+        //lengthwise
+        ["bp1l","bp4l"],
+        ["bp2l","bp5l"],
+        ["bp3l","bp6l"],
+
+        //crossing
+        ["bp1l", "bp5l"],
+        ["bp2l", "bp6l"],
+        ["bp2l", "bp4l"],
+        ["bp3l", "bp5l"],
+        
+        //corners
+        ["bp1l", "ss5l"],
+        ["bp4l", "rr5l"],
+        ["bp3l", "rf1l"],
+        ["bp6l", "rf3l"],
+        
+        ["bp1l", "ct2l"],
+
+        ["bp4l", "ct2l"],
+
+        ["bp3l", "rf2"],
+
+        ["bp6l", "rf2"],
+        
+        //rigids
+        ["bp2l", "ss6l"],
+
+        ["bp5l", "ss6l"],
+
+        ["bp2l", "rf2l"],
+        
+        ["bp5l", "rf2l"],
+        
+        ["bp1l", "bp3l"],
+
+        ["cp1l", "rf4l"],
+
+        ["bp4l", "bp6l"],
+
+        //b pillar end
+
+        
+
+        //c pillar
+
+        
+
+        ["cp2l", "sc2l"],
+        ["q3l", "sc2l"],
+
+        //vertical
+        ["cp1l", "q1l"],
+        ["cp2l", "q2l"],
+
+        //crossing
+        ["cp2l", "q1l"],
+        ["q2l", "sc2l"],
+        ["cp1l", "q2l"],
+        ["cp2l", "q3l"],
+        
+        //corners
+        ["cp1l", "rf3l"],
+        ["cp2l", "rf4"],
+        ["cp1l", "sc1"],
+        ["cp2l", "sc1"],
+        ["cp2l", "sc2"],
+        ["cp1l", "rr6l"],
+        
+        ["q1l", "rf4l"],
+        ["cp1l", "q5l"],
+
+
+
+
+
+
+        //c pillar end
+
+        //quarter panel
+        //lengthwise
+        ["q1l","q2l"],
+        ["q2l","q3l"],
+        ["q3l","q4l"],
+        ["q5l","q6l"],
+        ["q6l","q7l"],
+        ["q7l","q8l"],
+        ["q8l","q9l"],
+        
+        //vertical
+        ["q1l","q5l"],
+        ["q1l","q6l"],
+        ["q2l","q7l"],
+        ["q3l","q8l"],
+        ["q4l","q9l"],
+
+        //crossing
+        ["q1l", "q7l"],
+        ["q2l", "q8l"],
+        ["q3l", "q9l"],
+        ["q2l", "q6l"],
+        ["q3l", "q7l"],
+        ["q4l", "q8l"],
+        
+        //corners
+        ["q3l", "rr7l"],
+        ["q3l", "rr8l"],
+        ["q4l", "rr8l"],
+        
+        ["q8l", "rr8l"],
+        ["q9l", "rr8l"],
+
+        //quarter panel end
+
+        //upper cowl
+        //widthwise
+        //upper cowl end
+        
+        //rear panel
+        //widthwise
+        ["rp1","rp1l"],
+        ["q9l", "rp1l"],
+        
+        ["rp2","rp2l"],
+        ["rp2l","rp2ll"],
+        ["rp1ll","rp2ll"],
+        
+        //vertical
+        ["rp1","rp2"],
+        ["rp1l","rp2l"],
+        ["q9l", "rp2ll"],
+        ["q7l", "rp1ll"],
+        ["q4l", "rp1l"],
+
+        //crossing
+        ["rp1", "rp2l"],
+        ["rp1l", "rp2ll"],
+        ["q9l", "rp1ll"],
+        ["rp1l", "rp2"],
+        ["q9l", "rp2l"],
+        ["q8l", "rp2ll"],
+        ["q8l", "rp1ll"],
+        
+        //corners
+        ["rp1", "tf3"],
+        ["rp2ll", "rr8l"],
+
+        ["rp1ll", "rr8l"],
+
+        
+        
+        
+        
+        
+
+        //rear panel end
+
+        //trunk floor
+        //lengthwise
+        ["ct6l", "tf1"],
+
+        ["tf1","tf2"],
+        ["tf5","tf6"],
+        ["rp2", "tf3"],
+        
+        //widthwise
+        ["rr2l", "tf1"],
+        ["rr3l", "tf5"],
+        ["rr4l", "tf6"],
+        ["rp1ll", "rr3l"],
+        
+        //vertical
+        ["tf2","tf5"],
+        ["tf3","tf6"],
+
+        //crossing
+        ["ct6l", "rr5l"],
+
+        ["ct6l", "rr2l"],
+        ["rr3l", "tf1"],
+        
+        ["rr3l", "tf2"],
+        ["rr4l", "tf5"],
+        ["rr4l", "tf3"],
+        
+        
+        ["ct6ll", "tf1"],
+
+        ["rr5l", "tf1"],
+
+        ["rr2l", "tf2"],
+        ["rr3l", "tf6"],
+
+
+        ["rp2l", "tf3"],
+        ["rp2", "rr4l"],
+
+
+        ["rp2ll", "rr4l"],
+        ["rp1ll", "rr4l"],
+        ["rp2ll", "rr3l"],
+        
+        //corners
+        ["tf3", "tf5"],
+        ["tf2", "tf6"],
+        
+        ["ct6ll", "q5l"],
+
+        ["q5l", "tf1"],
+
+        ["rr6l", "tf1"],
+
+        ["rr7l", "tf2"],
+
+        ["rr8l", "tf3"],
+
+        
+        
+        
+        
+        
+
+        //trunk floor end
+
+        //shelf crossmember
+        //lengthwise
+        ["sc1","sc2"],
+        ["q1l", "sc2l"],
+
+        
+        //widthwise
+        ["sc2","sc2l"],
+        ["q1l", "sc1"],
+
+
+        //crossing
+
+        
+        //shelf crossmember end
+        
+        //front wheel house
+        ["ftl", "ur2l"],
+        ["ftl", "ur6l"],
+        ["ftl", "ur1l"],
+        ["ftl", "ur5l"],
+        ["fr4l", "ftl"],
+        ["ftl", "ucl"],
+        ["fr5l", "ftl"],
+        ["fr2l", "ftl"],
+
+        ["fr4l", "ur2l"],
+        ["ucl", "ur2l"],
+        ["fr4l", "ur6l"],
+        ["ucl", "ur6l"],
+        
+        ["fr6l", "ftl"],
+
+        //rear wheel house
+        
+        ["rr5l", "rtl"],
+
+        ["rr6l", "rtl"],
+        ["rr7l", "rtl"],
+
+        ["rr1l", "rtl"],
+        ["rr2l", "rtl"],
+        ["rr3l", "rtl"],
+
+
+        ["q5l", "rr5l"],
+        ["q7l", "rr7l"],
+
+        ["rp1ll", "rr7l"],
+
+        ["q5l", "rr6l"],
+        ["q7l", "rr6l"],
+
+        ["q1l", "rr6l"],
+
+
+
+
+        ["q2l", "rr7l"],
+
+
+
+        ["q5l", "rtl"],
+        ["q6l", "rtl"],
+        ["q7l", "rtl"],
+        ["rp1ll", "rtl"],
+
+
+
+        ["q1l", "rtl"],
+        ["q2l", "rtl"],
+
+
+        ["rf4l", "rtl"],
+
+        ["cp1l", "rtl"],
+        ["cp2l", "rtl"],
+        ["rtl", "sc2l"],
+        ["rtl", "sc1"],
+        ["rtl", "sc2"],
+
+
+
+
+        //roof
+        //lengthwise
+        ["rf1l","rf2l"],
+        ["rf2l","rf3l"],
+        ["rf3l","rf4l"],
+        
+        ["rf1","rf2"],
+        ["rf2","rf3"],
+        ["rf3","rf4"],
+        
+        //widthwise
+        ["rf1","rf1l"],
+        ["rf2","rf2l"],
+        ["rf3","rf3l"],
+        ["rf4","rf4l"],
+
+        //crossing
+        ["rf1l", "rf2"],
+        ["rf2l", "rf3"],
+        ["rf3l", "rf4"],
+        ["rf1", "rf2l"],
+        ["rf2", "rf3l"],
+        ["rf3", "rf4l"],
+        
+        //rigids
+        ["rf1l", "rf5"],
+
+        ["rf2l", "rf5"],
+
+        ["rf3l", "rf5"],
+
+        ["rf4l", "rf5"],
+
+        ["rf1", "rf5"],
+
+        ["rf2", "rf5"],
+
+        ["rf3", "rf5"],
+
+        ["rf4", "rf5"],
+
+
+
+
+        //roof end
+
+        //arguments anti bleed beams
+    ],
+    "triangles": [
+        ["id1:","id2:","id3:"],
+        {"groundModel":"metal"},
+    ],
+},
+}

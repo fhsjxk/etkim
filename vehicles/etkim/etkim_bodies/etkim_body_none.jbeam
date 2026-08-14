@@ -1,0 +1,48 @@
+{
+"etkim_body_none": {
+    "information":{//-1
+        "authors":"03ff",
+        "name":"None",
+        "value":13000
+    },
+    "slotType" : "etkim_body",
+    "slots": [
+        ["type", "default", "description"],
+        ["etkim_suspension_F","etkim_subframe_F", "Front Subframe"],
+        ["etkim_suspension_R","etkim_suspension_R", "Rear Subframe"],
+    ],
+    "refNodes":[
+        ["ref:", "back:", "left:", "up:", "leftCorner:", "rightCorner:"],
+        ["f2", "f4", "f2l", "f7", "f15ll", "f15rr"],
+    ],
+    "cameraExternal":{
+        "distance":5,
+        "distanceMin":2,
+        "offset":{"x":0, "y":0.4, "z":0.4},
+        "fov":65,
+    },
+    "components":{
+        "fixed":false
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":true},
+         {"collision":true},
+         {"fixed":true}
+         ["f2", 0, -0.23, 0.23]
+         ["f2l",   0.22, -0.23, 0.23],
+         ["f4", 0, 1.11, 0.23]
+         ["f7r", -0.19, -0.23, 0.5],
+         ["f7", 0, -0.23, 0.5, {"nodeWeight":0.75}]
+         ["f15rr", -0.73, -1.79, 0.78],
+         ["f15ll", 0.73, -1.79, 0.78],
+
+         ["fs1r", -0.47, -1.325, 0.86, {"group":["etkim_strut_F","etkim_strutbar"]}],
+         ["fs1l", 0.47, -1.325, 0.86, {"group":["etkim_strut_F","etkim_strutbar"]}],
+         {"fixed":false}
+         {"group":""},
+    ],
+}
+}

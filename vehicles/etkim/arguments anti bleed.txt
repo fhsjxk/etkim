@@ -1,0 +1,12 @@
+#arguments anti bleed nodes#
+#        {"fixed":false}
+        {"group":""},#
+#arguments anti bleed nodes end#
+
+#arguments anti bleed beams#
+#        {"breakGroup":""},
+        {"beamPrecompression":1.0},
+        {"disableTriangleBreaking":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        {"deformLimitExpansion":1.1},#
+#arguments anti bleed beams end#

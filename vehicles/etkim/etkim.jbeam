@@ -1,0 +1,18 @@
+{
+"etkim": {
+    "information":{
+        "authors":"03ff",
+        "name":"ETK I-Series"
+    },
+    "slotType" : "main",
+    "slots": [
+        ["type", "default", "description"],
+        ["etkim_body","etkim_body_sedan", "Body", {"coreSlot":true}]
+        ["licenseplate_design_2_1","","License Plate Design"],
+    ]
+    "controller": [
+        ["fileName"],
+        ["vehicleController", {}],
+    ],
+}
+}
